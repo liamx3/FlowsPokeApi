@@ -1,0 +1,34 @@
+  <mat-card *ngIf="pokemon" style="width: 300px;">
+    <mat-card-header>
+        <mat-card-title>{{ pokemon.name | titlecase}}</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <img style="margin-top: 10px; margin-left: 50px;" mat-card-lg-image [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}">
+
+        <p>Types: <span *ngFor="let type of pokemon.types; let last = last">
+            <small>{{ type.type.name }}</small><span *ngIf="!last">, </span>
+        </span></p>
+
+        <p>Abilities: <span *ngFor="let ability of pokemon.abilities; let last = last">
+            <small>{{ ability.ability.name }}</small><span *ngIf="!last">, </span>
+        </span></p>
+
+        <p>Stats: <span *ngFor="let stat of pokemon.stats; let last = last; let first = first">
+            <span *ngIf="!first" style="padding-left: 40px;"></span>
+            <small>{{ stat.stat.name }}: {{ stat.base_stat }}</small>
+            <span *ngIf="!last">, <br /> </span>
+        </span></p>
+
+        <!-- <p>Stats:</p>
+        <mat-list *ngFor="let stat of pokemon.stats">
+            <mat-list-item>{{ stat.stat.name }}: {{ stat.base_stat }}</mat-list-item>
+        </mat-list> -->
+        
+    </mat-card-content>
+
+    <mat-card-footer>
+        <button style="margin-left: 200px; margin-bottom: 10px;" mat-raised-button color="primary" (click)="backToGetPokemons()">Go Back</button>
+    </mat-card-footer>
+
+  </mat-card>

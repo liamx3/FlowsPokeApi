@@ -1,0 +1,26 @@
+<div class="d-flex justify-content-center">
+  <div class="col-4">
+    
+    <div class="col-8">
+      <input class="form-control mb-2 mt-2" type="text" [(ngModel)]="search" placeholder="Search For Pokemons..." />
+    </div>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Pokemon Name</th>
+        </tr>
+      </thead>
+
+      <tbody *ngFor="let pokemon of pokemons | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage } | filter:search">
+        <tr>
+          <td>{{ pokemon.name | titlecase }}</td>
+          <button (click)="goToDetails(pokemon.url)" class="btn btn-primary">View Details</button>
+        </tr>
+      </tbody>
+    </table>
+  
+  <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+
+  </div>
+</div>
