@@ -1,27 +1,28 @@
 # FlowsPokeApi
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+## Run application locally
 
-## Development server
+- Download .zip file 
+- Go to project dir 'FlowsPokeApi'
+- Run ng-serve
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Implementation Explanation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Started off by creating a Pokemon service to integrate PokeAPI using HttpClient with the application which consisted of 2 endpoints.
+	 * GetPokemons - Lists names of pokemons retrieved from the API limited to the first 50.
+	 * GetPokemonsData - Will retrieve a specifc pokemons according to the one that was chosen.
+	
+- Used Angular routing when the 'View Details' button is clicked to direct the user to the GetPokemonsData page per ID.
 
-## Build
+- Initially started working on this project making use of Bootstrap for styling however, made some research and started working with Angular Material later on in the pokemon-details component.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Made use of pipes and custom pipes.
+	 * Titlecase pipe for the name of the pokemons.
+	 * Pagination pipe to paginate the list of pokemons at 10 per page.
+	 * Custom filter pipe for the search functionality.
+	
+- Kept styling as neat and simple as can be. Kept in mind seperation of concerns and created direcotries accordingly in order to easily keep track of changes and work that's being done.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Application responsivness needs work as it was styled using pixels instead of percentages. Also specifc styles were included in the html tags instead of being in the .css files as these were minimal. Will make sure to work 
+  on that on future applications.
